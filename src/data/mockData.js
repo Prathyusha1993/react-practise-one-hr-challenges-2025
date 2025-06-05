@@ -1,10 +1,12 @@
 export const transactions = [
     {
         id: 1,
-        date: '01-01-2025',
+        date: '10-05-2024',
         description: 'Payment from Client A',
         referenceNo: 'INV-001',
-        amount: 1200.0,
+        // amount: 1200.0,
+        amount: 200,
+    // date: "2024-05-10"
     },
     {
         id: 2,
@@ -39,9 +41,12 @@ export const transactions = [
 export const mockInvoices = [
     {
         client: 'Client A',
-        creation_date: '30-05-2025',
-        referenceNo: 'INV-001',
-        amount: 1200.0
+        // creation_date: '30-05-2025',
+        // referenceNo: 'INV-001',
+        // amount: 1200.0
+        creation_date: "01-05-2024",
+        referenceNo: "INV-001",
+        amount: 200
     },
     {
         client: 'Client B',
