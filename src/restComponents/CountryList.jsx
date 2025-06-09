@@ -69,9 +69,16 @@ function CountryList() {
         }
         try {
             const response = await fetch(url);
-            if(!response.ok) throw new Error('Network response was not ok');
-            const data = await response.json();
-            setCountries(data);
+            if(!response.ok){
+                if(response.status == 404){
+                    setCountries([]);
+                }else{
+                    throw new Error("Error fetching data");
+                }
+            }else{
+                const data = await response.json();
+                setCountries(data);
+            }
         }catch(err){
             setError(err.message);
         }
@@ -87,6 +94,12 @@ function CountryList() {
   return (
     <div>
         <div>
+            <select onChange={(e) => setSearchType(e.target.value)} value={searchType}>
+                <option value='name'>By Name</option>
+                <option value='region' >By Region</option>
+                <option value='language'>By Language</option>
+                <option value='currency'>By Currency</option>
+            </select>
             <input type='text' value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} placeholder='Search...' />
         </div>
         {loading && <p>...Loading</p>}
