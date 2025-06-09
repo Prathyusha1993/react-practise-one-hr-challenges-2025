@@ -12,7 +12,7 @@ function CountryCard({country, handleViewMore}) {
                     <ul>
                         <li key={country.name.official}>
                             <p>Capital: {country.capital ? country.capital[0]:'N/A'}</p>
-                            <p>Population: {country.population.toLocaleString()}</p>
+                            {/* <p>Population: {country.population.toLocaleString()}</p> */}
                             <p>Region: {country.region}</p>
                         </li>
                     </ul>

@@ -10,9 +10,9 @@ function ModalComponent({ country, handleCloseModal, showMore}) {
                 <div>
                     <img src={country.flags.svg} alt={country.flags.alt} />
                     <p>Capital: {country.capital ? country.capital[0]: 'N/A'}</p>
-                    <p>Population: {country.population.toLocaleString()}</p>
+                    {/* <p>Population: {country.population.toLocaleString()}</p> */}
                     <p>Region: {country.region}</p>
-                    <p>Native Name: {Object.values(country.name.nativeName || {}[0] ?.common || 'N/A')}</p>
+                    <p>Native Name: {country.name.nativeName ? Object.values(country.name.nativeName).map(n => n.common).join(',') : 'N/A'}</p>
                     <p>Currencies: {country.currencies ? Object.values(country.currencies).map(c => c.name).join(','): 'n/a'}</p>
                     <p>Languages: {country.languages ? Object.values(country.languages).join(','): 'n/a'}</p>
                     <p>Border Countries: {country.borders ? country.borders.join(','): 'none'}</p>
